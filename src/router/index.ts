@@ -1,14 +1,16 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import Home from '../views/Home.vue';
-import About from '../views/About.vue';
+import HomeView from '../views/HomeView.vue';
+import LibraryView from '../views/LibraryView.vue';
+import EditorView from '../views/EditorView.vue';
 
-// Определяем маршруты: путь -> компонент
 const routes = [
-  { path: '/', name: 'Home', component: Home },
-  { path: '/about', name: 'About', component: About },
+  { path: '/', name: 'home', component: HomeView },
+  { path: '/characters', name: 'library', component: LibraryView },
+  { path: '/character/:id', name: 'editor', component: EditorView, props: true },
+  // для создания нового персонажа используем тот же компонент, но id = 'new'
+  { path: '/character/new', name: 'new-character', component: EditorView, props: { id: 'new' } }
 ];
 
-// Создаём роутер с историей браузера (чтобы URL выглядел нормально)
 const router = createRouter({
   history: createWebHistory(),
   routes,

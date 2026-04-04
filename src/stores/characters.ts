@@ -1,0 +1,152 @@
+import type { st } from "vue-router/dist/router-CWoNjPRp.mjs";
+
+export const ROLES = [
+  { value: 'rockerboy', label: 'Рокербой', role_ability: 'charismatic_impact', role_ability_label: 'Харизматическое влияние', role_description: 'Бунтари рок‑н‑ролла, бросающие вызов власти с помощью искусства, выступлений и пламенной риторики.'},
+  { value: 'solo', label: 'Соло', role_ability: 'combat_awereness', role_ability_label: 'Боевое чутьё', role_description: 'Наёмные убийцы, телохранители, ликвидаторы и солдаты удачи в новом беззаконном мире.'},
+  { value: 'netrunner', label: 'Нетраннер', role_ability: 'interface', role_ability_label: 'Интерфейс', role_description: 'Кибернетические виртуозы взлома в мире пост‑сети — похитители тайн, способных сжечь мозг.'},
+  { value: 'tech', label: 'Техник', role_ability: 'maker', role_ability_label: 'Создатель', role_description: 'Мятежные механики и изобретатели сверхтехнологий — те, кто заставляет работать Тёмное Будущее.'},
+  { value: 'medtech', label: 'Медтехник', role_ability: 'medicine', role_ability_label: 'Медицина', role_description: 'Нелицензированные уличные врачи и кибермедики, штопающие плоть и металл.'},
+  { value: 'media', label: 'Медиа', role_ability: 'credibility', role_ability_label: 'Авторитетность', role_description: 'Репортёры, звёзды медиа и инфлюэнсеры, рискующие всем — ради правды… или славы.'},
+  { value: 'exec', label: 'Менеджер', role_ability: 'teamwork', role_ability_label: 'Командная работа', role_description: 'Корпоративные воротилы и бизнес-рейдеры, сражающиеся за восстановление власти Мегакорпораций.'},
+  { value: 'lawman', label: 'Законник', role_ability: 'backup', role_ability_label: 'Подкрепление', role_description: 'Неумолимые блюстители закона, патрулирующие жестокие улицы и дикие магистрали за городской чертой.'},
+  { value: 'fixer', label: 'Фиксер', role_ability: 'operator', role_ability_label: 'Деловая хватка', role_description: 'Дилеры, организаторы и торговцы информацией на поствоенных Полуночных Рынках Улицы.'},
+  { value: 'nomad', label: 'Кочевник', role_ability: 'moto', role_ability_label: 'Мото', role_description: 'Эксперты по перевозкам, бесстрашные воины дорог, пираты и контрабандисты, которые держат мир связанным воедино.'}
+] as const;
+
+export const SKILLS = [
+{ value: 'concentration', label: 'Концентрация', stat: 'WILL', category: 'awereness', category_label: 'Навыки восприятия', description: 'Навык концентрации и умственного контроля, проявляющийся в способности удерживать и воспроизводить информацию, игнорировать отвлекающие факторы, а также в контроле над физиологическими процессами.', harder: 'false'},
+{ value: 'conceal', label: 'Скрытие/обнаружение объекта', stat: 'INT', category: 'awereness', category_label: 'Навыки восприятия', description: 'Навык сокрытия объектов и обнаружения спрятанных объектов. Используется для маскировки оружия под одеждой и выявления скрытого оружия', harder: 'false'},
+{ value: 'lip_reading', label: 'Чтение по губам', stat: 'INT', category: 'awereness', category_label: 'Навыки восприятия', description: 'Навык чтения по губам, позволяющий определить, что говорит человек.', harder: 'false'},
+{ value: 'perception', label: 'Восприятие', stat: 'INT', category: 'awereness', category_label: 'Навыки восприятия', description: 'Навык обнаружения скрытых вещей, таких как улики, ловушки, а также людей, использующих навык «Скрытность», но не предметов, спрятанных с помощью навыка «Скрытие/обнаружение объекта».', harder: 'false'},
+{ value: 'tracking', label: 'Выслеживание', stat: 'INT', category: 'awereness', category_label: 'Навыки восприятия', description: 'Навык выслеживания по отпечаткам и другим оставленным уликам.', harder: 'false'},
+{ value: 'athletics', label: 'Атлетика', stat: 'DEX', category: 'body', category_label: 'Физические навыки', description: 'Навык выполнения прыжков, лазания, бросков, плавания, поднятия тяжестей и других физических действий.', harder: 'false'},
+{ value: 'contortionist', label: 'Акробатика', stat: 'DEX', category: 'body', category_label: 'Физические навыки', description: 'Навык управления телом для освобождения из наручников или иных сковывающих приспособлений, а также для проникновения в труднодоступные места и узкие пространства.', harder: 'false'},
+{ value: 'dance', label: 'Танец', stat: 'DEX', category: 'body', category_label: 'Физические навыки', description: 'Навык исполнения танцевальных движений на профессиональном уровне.', harder: 'false'},
+{ value: 'endurance', label: 'Выносливость', stat: 'WILL', category: 'body', category_label: 'Физические навыки', description: 'Навык выдерживать суровые условия окружающей среды и жизненные лишения.', harder: 'false'},
+{ value: 'resist_torture', label: 'Сопротивление пыткам/наркотикам', stat: 'WILL', category: 'body', category_label: 'Физические навыки', description: 'Навык сопротивления болезненным воздействиям, включая допросы, пытки и влияние наркотиков.', harder: 'false'},
+{ value: 'stealth', label: 'Скрытность', stat: 'DEX', category: 'body', category_label: 'Физические навыки', description: 'Навык бесшумного передвижения, маскировки, незаметного выполнения действий и уклонения от обнаружения. Другие персонажи могут попытаться обнаружить вас с помощью своего навыка «Восприятие».', harder: 'false'},
+{ value: 'drive_land_vehicle', label: 'Вождение', stat: 'REF', category: 'control', category_label: 'Навыки управления', description: 'Навык управления и маневрирования наземными транспортными средствами.', harder: 'false'},
+{ value: 'pilot_air_vehicle', label: 'Пилотирование', stat: 'REF', category: 'control', category_label: 'Навыки управления', description: 'Навык пилотирования и маневрирования воздушными транспортными средствами.', harder: 'true'},
+{ value: 'pilot_sea_vehicle', label: 'Судовождение', stat: 'REF', category: 'control', category_label: 'Навыки управления', description: 'Навык управления и маневрирования морскими транспортными средствами.', harder: 'false'},
+{ value: 'riding', label: 'Верховая езда', stat: 'REF', category: 'control', category_label: 'Навыки управления', description: 'Навык езды на специально обученных для этой цели живых существах.', harder: 'false'},
+{ value: 'accounting', label: 'Бухгалтерский учёт', stat: 'INT', category: 'education', category_label: 'Умственные навыки', description: 'Навык ведения финансовой отчётности, составления и выявления фиктивных документов, работы с числами, формирования бюджетов и выполнения повседневных бизнес‑операций.', harder: 'false'},
+{ value: 'animal_handling', label: 'Обращение с животными', stat: 'INT', category: 'education', category_label: 'Умственные навыки', description: 'Навык обращения с животными, их дрессировки и ухода за ними.', harder: 'false'},
+{ value: 'bureaucracy', label: 'Бюрократия', stat: 'INT', category: 'education', category_label: 'Умственные навыки', description: 'Навык взаимодействия с бюрократическими структурами: определения нужных контактов, способов выхода на ответственных лиц и получения информации от государственных и корпоративных учреждений.', harder: 'false'},
+{ value: 'business', label: 'Бизнес', stat: 'INT', category: 'education', category_label: 'Умственные навыки', description: 'Навык владения основами предпринимательской деятельности: законами спроса и предложения, управлением персоналом, закупками, продажами и маркетингом.', harder: 'false'},
+{ value: 'composition', label: 'Сочинение', stat: 'INT', category: 'education', category_label: 'Умственные навыки', description: 'Навык профессионального написания песен, статей и рассказов.', harder: 'false'},
+{ value: 'criminology', label: 'Криминология', stat: 'INT', category: 'education', category_label: 'Умственные навыки', description: 'Навык поиска улик: снятия отпечатков пальцев, проведения баллистических экспертиз, изучения вещественных доказательств, а также работы с полицейскими архивами и делами.', harder: 'false'},
+{ value: 'cryptography', label: 'Криптография', stat: 'INT', category: 'education', category_label: 'Умственные навыки', description: 'Навык шифровать и расшифровывать сообщения.', harder: 'false'},
+{ value: 'deducation', label: 'Дедукция', stat: 'INT', category: 'education', category_label: 'Умственные навыки', description: 'Навык построения неочевидных выводов или постановки медицинских диагнозов на основе нескольких разрозненных улик.', harder: 'false'},
+{ value: 'education', label: 'Общее образование', stat: 'INT', category: 'education', category_label: 'Умственные навыки', description: 'Навык общей эрудиции, соответствующий базовому школьному уровню: умение читать, писать, выполнять простые математические операции и знать историю в достаточной для повседневной жизни степени.', harder: 'false'},
+{ value: 'gamble', label: 'Азартные игры', stat: 'INT', category: 'education', category_label: 'Умственные навыки', description: 'Навык расчёта вероятностей и успешной игры в азартные игры.', harder: 'false'},
+{ value: 'language', label: 'Язык', stat: 'INT', category: 'education', category_label: 'Умственные навыки', description: 'Навык владения конкретным языком. При повышении этого навыка необходимо выбрать определённый язык.', harder: 'false'},
+{ value: 'library_search', label: 'Поиск данных', stat: 'INT', category: 'education', category_label: 'Умственные навыки', description: 'Навык использования баз данных, информационных массивов, библиотек и других структурированных источников для поиска необходимых сведений.', harder: 'false'},
+{ value: 'local_expert', label: 'Знание района', stat: 'INT', category: 'education', category_label: 'Умственные навыки', description: 'Навык детального знания конкретной территории и понимания интересов действующих на ней групп — как политических, так и криминальных. При повышении навыка необходимо выбрать конкретную локацию, размер которой не может превышать одного района или сообщества.', harder: 'false'},
+{ value: 'science', label: 'Наука', stat: 'INT', category: 'education', category_label: 'Умственные навыки', description: 'Навык проведения научных исследований: проектирования экспериментов, написания научных работ, проверки гипотез и ведения академических дискуссий в выбранной области. При повышении навыка требуется указать специализацию. Возможные варианты: геология, математика, физика, зоология, антропология, биология, химия, история и т. д.', harder: 'false'},
+{ value: 'tactics', label: 'Тактика', stat: 'INT', category: 'education', category_label: 'Умственные навыки', description: 'Навык эффективного и рационального управления крупномасштабными сражениями. Персонаж с этим навыком обычно понимает, какие действия необходимы для руководства боем, и может предугадать реакцию вражеских сил.', harder: 'false'},
+{ value: 'wilderness_survivial', label: 'Выживание в дикой местности', stat: 'INT', category: 'education', category_label: 'Умственные навыки', description: 'Навык комфортного выживания в условиях дикой природы.', harder: 'false'},
+{ value: 'brawling', label: 'Рукопашный бой', stat: 'DEX', category: 'fighting', category_label: 'Навыки боя', description: 'Навык ведения боя и борьбы с использованием грубой физической силы.', harder: 'false'},
+{ value: 'evasion', label: 'Уклонение', stat: 'DEX', category: 'fighting', category_label: 'Навыки боя', description: 'Навык ухода с линии атаки противника в ближнем бою. Персонаж с показателем РЕФ 8 или выше может также использовать этот навык для уклонения от дальнобойных атак.', harder: 'false'},
+{ value: 'martial_arts', label: 'Боевые искусства', stat: 'DEX', category: 'fighting', category_label: 'Навыки боя', description: 'Навык ведения боя с применением определённой школы боевых искусств. При повышении этого навыка необходимо выбрать конкретную школу, в которой проходит обучение. Можно осваивать несколько школ, но каждую — отдельно. Возможные варианты (каратэ, тхэквондо, дзюдо, айкидо) ', harder: 'true'},
+{ value: 'melee_weapon', label: 'Оружие ближнего боя', stat: 'DEX', category: 'fighting', category_label: 'Навыки боя', description: 'Навык ведения боя с использованием оружия ближнего действия.', harder: 'false'},
+{ value: 'acting', label: 'Актёрское мастерство', stat: 'COOL', category: 'performance', category_label: 'Навыки выступления', description: 'Навык исполнения роли, маскировки под другого человека (реального или вымышленного), а также имитации эмоций и настроений.', harder: 'false'},
+{ value: 'play_instrument', label: 'Игра на музыкальных инструментах', stat: 'TECH', category: 'performance', category_label: 'Навыки выступления', description: 'Навык профессионального исполнения музыки на каком‑либо инструменте. При повышении этого навыка необходимо выбрать конкретный инструмент. Возможные варианты: вокал, гитара, ударные, скрипка, фортепиано и т. д.', harder: 'false'},
+{ value: 'archery', label: 'Стрельба из лука', stat: 'REF', category: 'ranged', category_label: 'Навыки дистанционного боя', description: 'Навык точной стрельбы из метательного оружия, запускающего стрелы или болты (луки, арбалеты).', harder: 'false'},
+{ value: 'autofire', label: 'Автоматическая стрельба', stat: 'REF', category: 'ranged', category_label: 'Навыки дистанционного боя', description: 'Навык удержания оружия в режиме автоматической стрельбы на цели с учётом отдачи.', harder: 'true'},
+{ value: 'handgun', label: 'Короткоствольное оружие', stat: 'REF', category: 'ranged', category_label: 'Навыки дистанционного боя', description: 'Навык точной стрельбы из ручного короткоствольного оружия, такого как пистолеты.', harder: 'false'},
+{ value: 'heavy_weapons', label: 'Тяжелое вооружение', stat: 'REF', category: 'ranged', category_label: 'Навыки дистанционного боя', description: 'Навык точной стрельбы из крупнокалиберных огнестрельных систем, включая гранатомёты и ракетные установки.', harder: 'true'},
+{ value: 'shoulder_arms', label: 'Длинноствольное оружие', stat: 'REF', category: 'ranged', category_label: 'Навыки дистанционного боя', description: 'Навык точной стрельбы из оружия, удерживаемого при стрельбе у плеча, включая винтовки и дробовики.', harder: 'false'},
+{ value: 'bribery', label: 'Подкуп', stat: 'COOL', category: 'social', category_label: 'Социальные навыки', description: 'Навык определения момента, когда следует подкупить кого‑либо, выбора способа подхода к человеку и определения размера предложения.', harder: 'false'},
+{ value: 'conversation', label: 'Общение', stat: 'EMP', category: 'social', category_label: 'Социальные навыки', description: 'Навык получения сведений от собеседника незаметно для него, с помощью продуманной тактики ведения беседы.', harder: 'false'},
+{ value: 'human_perception', label: 'Чтение людей', stat: 'EMP', category: 'social', category_label: 'Социальные навыки', description: 'Навык распознавания эмоционального состояния человека и выявления лжи или обмана по выражению лица и языку тела.', harder: 'false'},
+{ value: 'interrogation', label: 'Допрос', stat: 'COOL', category: 'social', category_label: 'Социальные навыки', description: 'Навык принудительного получения информации от людей.', harder: 'false'},
+{ value: 'persuasion', label: 'Убеждение', stat: 'COOL', category: 'social', category_label: 'Социальные навыки', description: 'Навык убеждения, склонения к своей точке зрения или оказания влияния на других людей.', harder: 'false'},
+{ value: 'personal_grooming', label: 'Уход за собой', stat: 'COOL', category: 'social', category_label: 'Социальные навыки', description: 'Навык правильного ухода за собой для максимизации привлекательности.', harder: 'false'},
+{ value: 'streetwise', label: 'Знание улиц', stat: 'COOL', category: 'social', category_label: 'Социальные навыки', description: 'Навык налаживания и использования контактов для получения нелегальных товаров и контрабанды, общения с криминальными элементами, а также избегания опасных ситуаций в неблагополучных районах.', harder: 'false'},
+{ value: 'trading', label: 'Торг', stat: 'COOL', category: 'social', category_label: 'Социальные навыки', description: 'Навык заключения выгодной сделки с торговцем или покупателем.', harder: 'false'},
+{ value: 'wardrobe_and_style', label: 'Гардероб и стиль', stat: 'cool', category: 'social', category_label: 'Социальные навыки', description: 'Навык выбора подходящей одежды и определения уместности её ношения в конкретной ситуации.', harder: 'false'},
+{ value: 'air_vehicle_tech', label: 'Обслуживание воздушных судов', stat: 'TECH', category: 'technique', category_label: 'Технические навыки', description: 'Навык ремонта и технического обслуживания воздушных транспортных средств.', harder: 'false'},
+{ value: 'basic_tech', label: 'Базовые технические навыки', stat: 'TECH', category: 'technique', category_label: 'Технические навыки', description: 'Навык идентификации, понимания и ремонта простых электронных и механических устройств, а также любых других предметов, не охватываемых иными техническими навыками.', harder: 'false'},
+{ value: 'cybertech', label: 'Кибертехнологии', stat: 'TECH', category: 'technique', category_label: 'Технические навыки', description: 'Навык идентификации, понимания и ремонта кибернетических устройств и имплантов.', harder: 'false'},
+{ value: 'demolitions', label: 'Взрывные устройства', stat: 'TECH', category: 'technique', category_label: 'Технические навыки', description: 'Навык установки и обезвреживания взрывчатых веществ, а также расчёта необходимого количества взрывчатки для достижения желаемого результата.', harder: 'true'},
+{ value: 'electronics_tech', label: 'Электроника и системы безопасности', stat: 'TECH', category: 'technique', category_label: 'Технические навыки', description: 'Навык идентификации, понимания, ремонта, противодействия и установки сложных электронных устройств, включая компьютеры, кибердекки, персональную электронику, системы электронной безопасности, жучки и маяки, нажимные пластины, лазерные ловушки и т. д.', harder: 'true'},
+{ value: 'first_aid', label: 'Первая помощь', stat: 'TECH', category: 'technique', category_label: 'Технические навыки', description: 'Навык оказания медицинской помощи раненому человеку для лечения наиболее распространённых критических травм и предотвращения смерти.', harder: 'false'},
+{ value: 'forgery', label: 'Фальсификация', stat: 'TECH', category: 'technique', category_label: 'Технические навыки', description: 'Навык создания и выявления поддельных документов и удостоверений личности.', harder: 'false'},
+{ value: 'land_vehicle_tech', label: 'Обслуживание наземного транспорта', stat: 'TECH', category: 'technique', category_label: 'Технические навыки', description: 'Навык ремонта и технического обслуживания наземных транспортных средств.', harder: 'false'},
+{ value: 'paint_draw_sculpt', label: 'Изобразительное искусство', stat: 'TECH', category: 'technique', category_label: 'Технические навыки', description: 'Навык профессионального создания картин, рисунков или скульптур.', harder: 'false'},
+{ value: 'paramedic', label: 'Парамедик', stat: 'TECH', category: 'technique', category_label: 'Технические навыки', description: 'Навык оказания медицинской помощи раненому человеку для лечения всех критических травм, не требующих хирургического вмешательства, и предотвращения смерти (хирургия доступна только медикам через их ролевую способность «Медицина»).', harder: 'true'},
+{ value: 'photography', label: 'Фотография и видеосъёмка', stat: 'TECH', category: 'technique', category_label: 'Технические навыки', description: 'Навык создания фотографий, видеозаписей или брайндансов.', harder: 'false'},
+{ value: 'pick_lock', label: 'Взлом замков', stat: 'TECH', category: 'technique', category_label: 'Технические навыки', description: 'Навык обхода неэлектронных замков.', harder: 'false'},
+{ value: 'pick_pocket', label: 'Карманные кражи', stat: 'TECH', category: 'technique', category_label: 'Технические навыки', description: 'Навык незаметного извлечения предметов, находящихся при другом человеке, а также мелкого воровства в магазинах без привлечения внимания.', harder: 'false'},
+{ value: 'sea_vehicle_tech', label: 'Обслуживание морских судов', stat: 'TECH', category: 'technique', category_label: 'Технические навыки', description: 'Навык ремонта и технического обслуживания морских транспортных средств.', harder: 'false'},
+{ value: 'weaponstech', label: 'Оружейное дело', stat: 'TECH', category: 'technique', category_label: 'Технические навыки', description: 'Навык ремонта и обслуживания оружия всех типов.', harder: 'false'}
+] as const;
+
+export const INJURES_HEAD = [
+  'lost_eye',
+  'brain_injury',
+  'damaged_eye',
+  'concussion',
+  'broken_jaw',
+  'foreign_object',
+  'whiplash',
+  'cracked_skull',
+  'damaged_ear',
+  'crushed_windpipe',
+  'lost_ear'
+] as const;
+
+export const INJURES_BODY = [
+  'dismembered_arm',
+  'dismembered_hand',
+  'collapsed_lung',
+  'broken_ribs',
+  'broken_arm',
+  'foreign_object',
+  'broken_leg',
+  'torn_muscle',
+  'spinal_injury',
+  'crushed_fingers',
+  'dismembered_leg'
+] as const;
+
+export type Role = typeof ROLES[number];
+export type Injures_head = typeof INJURES_HEAD[number];
+export type Injures_body = typeof INJURES_BODY[number];
+
+export interface Character {
+  id: string;
+  handle: string;
+  role: Role;
+  role_ability_rank: number;
+  notes: string;
+
+  intelligence: number;
+  willpower: number;
+  cool: number;
+  empathy_current: number;
+  empathy_max: number;
+  technique: number;
+  reflexes: number;
+  luck_current: number;
+  luck_max: number;
+  body: number;
+  dexterity: number;
+  movement: number;
+  humanity_current: number;
+  humanity_max: number;
+  hit_points_current: number;
+  hit_points_max: number;
+  seriously_wounded: boolean;
+  critical_injures_head: Injures_head;
+  critical_injures_body: Injures_body;
+  addictions: string;
+  death_save: number;
+
+
+  aliases: string;
+  improvement_points_current: number;
+  improvement_points_max: number;
+  reputation: number;
+  reputation_events: string;
+}
