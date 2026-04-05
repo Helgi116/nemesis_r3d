@@ -1,4 +1,4 @@
-import type { st } from "vue-router/dist/router-CWoNjPRp.mjs";
+import type { N, st } from "vue-router/dist/router-CWoNjPRp.mjs";
 
 export const ROLES = [
   { value: 'rockerboy', label: 'Рокербой', role_ability: 'charismatic_impact', role_ability_label: 'Харизматическое влияние', role_description: 'Бунтари рок‑н‑ролла, бросающие вызов власти с помощью искусства, выступлений и пламенной риторики.'},
@@ -10,7 +10,7 @@ export const ROLES = [
   { value: 'exec', label: 'Менеджер', role_ability: 'teamwork', role_ability_label: 'Командная работа', role_description: 'Корпоративные воротилы и бизнес-рейдеры, сражающиеся за восстановление власти Мегакорпораций.'},
   { value: 'lawman', label: 'Законник', role_ability: 'backup', role_ability_label: 'Подкрепление', role_description: 'Неумолимые блюстители закона, патрулирующие жестокие улицы и дикие магистрали за городской чертой.'},
   { value: 'fixer', label: 'Фиксер', role_ability: 'operator', role_ability_label: 'Деловая хватка', role_description: 'Дилеры, организаторы и торговцы информацией на поствоенных Полуночных Рынках Улицы.'},
-  { value: 'nomad', label: 'Кочевник', role_ability: 'moto', role_ability_label: 'Мото', role_description: 'Эксперты по перевозкам, бесстрашные воины дорог, пираты и контрабандисты, которые держат мир связанным воедино.'}
+  { value: 'nomad', label: 'Кочевник', role_ability: 'moto', role_ability_label: 'Мотор', role_description: 'Эксперты по перевозкам, бесстрашные воины дорог, пираты и контрабандисты, которые держат мир связанным воедино.'}
 ] as const;
 
 export const SKILLS = [
@@ -69,7 +69,7 @@ export const SKILLS = [
 { value: 'basic_tech', label: 'Базовые технические навыки', stat: 'TECH', category: 'technique', category_label: 'Технические навыки', description: 'Навык идентификации, понимания и ремонта простых электронных и механических устройств, а также любых других предметов, не охватываемых иными техническими навыками.', harder: 'false'},
 { value: 'cybertech', label: 'Кибертехнологии', stat: 'TECH', category: 'technique', category_label: 'Технические навыки', description: 'Навык идентификации, понимания и ремонта кибернетических устройств и имплантов.', harder: 'false'},
 { value: 'demolitions', label: 'Взрывные устройства', stat: 'TECH', category: 'technique', category_label: 'Технические навыки', description: 'Навык установки и обезвреживания взрывчатых веществ, а также расчёта необходимого количества взрывчатки для достижения желаемого результата.', harder: 'true'},
-{ value: 'electronics_tech', label: 'Электроника и системы безопасности', stat: 'TECH', category: 'technique', category_label: 'Технические навыки', description: 'Навык идентификации, понимания, ремонта, противодействия и установки сложных электронных устройств, включая компьютеры, кибердекки, персональную электронику, системы электронной безопасности, жучки и маяки, нажимные пластины, лазерные ловушки и т. д.', harder: 'true'},
+{ value: 'electronics_tech', label: 'Электроника и системы безопасности', stat: 'TECH', category: 'technique', category_label: 'Технические навыки', description: 'Навык идентификации, понимания, ремонта, противодействия и установки сложных электронных устройств, включая компьютеры, кибердеки, персональную электронику, системы электронной безопасности, жучки и маячки, нажимные пластины, лазерные ловушки и т.д.', harder: 'true'},
 { value: 'first_aid', label: 'Первая помощь', stat: 'TECH', category: 'technique', category_label: 'Технические навыки', description: 'Навык оказания медицинской помощи раненому человеку для лечения наиболее распространённых критических травм и предотвращения смерти.', harder: 'false'},
 { value: 'forgery', label: 'Фальсификация', stat: 'TECH', category: 'technique', category_label: 'Технические навыки', description: 'Навык создания и выявления поддельных документов и удостоверений личности.', harder: 'false'},
 { value: 'land_vehicle_tech', label: 'Обслуживание наземного транспорта', stat: 'TECH', category: 'technique', category_label: 'Технические навыки', description: 'Навык ремонта и технического обслуживания наземных транспортных средств.', harder: 'false'},
@@ -82,7 +82,7 @@ export const SKILLS = [
 { value: 'weaponstech', label: 'Оружейное дело', stat: 'TECH', category: 'technique', category_label: 'Технические навыки', description: 'Навык ремонта и обслуживания оружия всех типов.', harder: 'false'}
 ] as const;
 
-export const INJURES_HEAD = [
+export const INJURIES_HEAD = [
   'lost_eye',
   'brain_injury',
   'damaged_eye',
@@ -96,7 +96,7 @@ export const INJURES_HEAD = [
   'lost_ear'
 ] as const;
 
-export const INJURES_BODY = [
+export const INJURIES_BODY = [
   'dismembered_arm',
   'dismembered_hand',
   'collapsed_lung',
@@ -110,12 +110,113 @@ export const INJURES_BODY = [
   'dismembered_leg'
 ] as const;
 
+export const CULTURAL_ORIGINS = [
+  'Северная Америка',
+  'Южная/Центральная Америка',
+  'Западная Европа',
+  'Восточная Европа',
+  'Ближний Восток/Северная Африка',
+  'Чёрная Африка',
+  'Южная Азия',
+  'Юго-Восточная Азия',
+  'Восточная Азия',
+  'Океания/Тихоокеанские Острова'
+] as const;
+
+export interface Lifepath {
+  cultural_origins: string;
+  personality: string;
+  clothing_style: string;
+  hairstyle: string;
+  what_do_you_value_most: string;
+  feelings_about_people: string;
+  most_valued_person: string;
+  most_valued_possesion: string;
+  family_background: string;
+  childhood_environment: string;
+  family_crisis: string;
+  life_goals: string;
+  friends: string[];
+  tragic_love_affairs: string[];
+  enemies: string[];
+}
+
+export const CULTURAL_LANGUAGES: Record<CulturalOrigin, string[]> = {
+  'Северная Америка': ['Китайский', 'Кри', 'Креольский', 'Английский', 'Французский', 'Навахо', 'Испанский'],
+  'Южная/Центральная Америка': ['Креольский', 'Английский', 'Немецкий', 'Гуарани', 'Майя', 'Португальский', 'Кечуа', 'Испанский'],
+  'Западная Европа': ['Голландский', 'Английский', 'Французский', 'Немецкий', 'Итальянский', 'Норвежский', 'Португальский', 'Испанский'],
+  'Восточная Европа': ['Английский', 'Финский', 'Польский', 'Румынский', 'Русский', 'Украинский'],
+  'Ближний Восток/Северная Африка': ['Арабский', 'Берберский', 'Английский', 'Персидский', 'Французский', 'Иврит', 'Турецкий'],
+  'Чёрная Африка': ['Арабский', 'Английский', 'Французский', 'Хауса', 'Лингала', 'Оромо', 'Португальский', 'Суахили', 'Чви', 'Йоруба'],
+  'Южная Азия': ['Бенгальский', 'Дари', 'Английский', 'Хинди', 'Непальский', 'Сингальский', 'Тамил', 'Урду'],
+  'Юго-Восточная Азия': ['Арабский', 'Бирманский', 'Английский', 'Филиппинский', 'Хинди', 'Индонезийский', 'Кхмерский', 'Малайский', 'Вьетнамский'],
+  'Восточная Азия': ['Кантонский', 'Китайский', 'Английский', 'Японский', 'Корейский', 'Китайский', 'Монгольский'],
+  'Океания/Тихоокеанские Острова': ['Английский', 'Французский', 'Гавайский', 'Маори', 'Пама-Ньюнгон', 'Таитянский']
+}
+
+export const PERSONALITIES = [
+  'Застенчивый и скрытный',
+  'Бунтарь, антисоциальный и жестокий',
+  'Высокомерный, гордый и отстранённый',
+  'Капризный, вспыльчивый и упрямый',
+  'Придирчивый, нервный и суетливый',
+  'Уравновешенный и серьёзный',
+  'Глуповатый и легкомысленный',
+  'Хитрый и обманчивый',
+  'Интеллектуальный и отстранённый',
+  'Дружелюбный и общительный'
+] as const;
+
+export const CLOTHING_STYLES = [
+  'Generic Chic (стандартный, яркий, модульный)',
+  'Leisurewear (комфорт, ловкость, спортивный)',
+  'Urban Flash (яркий, технологичный, уличный)',
+  'Businesswear (лидерский, авторитетный, презентабельный)',
+  'High Fashion (эксклюзивный, дизайнерский, кутюр)',
+  'Bohemian (народный, ретро, свободолюбивый)',
+  'Bag Lady Chic (бездомный, рваный, бродяжный)',
+  'Gang Colours (опасный, агрессивный, бунтарский)',
+  'Nomad Leathers (вестерн, грубый, племенной)',
+  'Asia Pop (яркий, маскарадный, молодёжный)'
+] as const;
+
+export const HAIR_STYLES = [
+  'Ирокез',
+  'Длинные и растрёпанные',
+  'Короткие и острые',
+  'Дикие и хаотичные',
+  'Лысина',
+  'Полосатые',
+  'Яркие цвета',
+  'Аккуратные и короткие',
+  'Короткие и кудрявые',
+  'Длинные и прямые'
+] as const;
+
+export const AFFECTATIONS = [
+  'Татуировки',
+  'Зеркальные солнцезащитные очки',
+  'Ритуальные шрамы',
+  'Перчатки с шипами',
+  'Кольца в носу',
+  'Пирсинг языка или других частей тела',
+  'Странные импланты ногтей',
+  'Сапоги или каблуки с шипами',
+  'Перчатки без пальцев',
+  'Необычные контактные линзы'
+] as const;
+
 export type Role = typeof ROLES[number];
-export type Injures_head = typeof INJURES_HEAD[number];
-export type Injures_body = typeof INJURES_BODY[number];
+export type CriticalInjuryHead = typeof INJURIES_HEAD[number];
+export type CriticalInjuryBody = typeof INJURIES_BODY[number];
+export type CulturalOrigin = typeof CULTURAL_ORIGINS[number];
+export type Personality = typeof PERSONALITIES[number];
+export type ClothingStyle = typeof CLOTHING_STYLES[number];
+export type HairStyle = typeof HAIR_STYLES[number];
+export type AffectationYouAreNeverWithout = typeof AFFECTATIONS[number];
 
 export interface Character {
-  id: string;
+  id: number;
   handle: string;
   role: Role;
   role_ability_rank: number;
@@ -132,21 +233,25 @@ export interface Character {
   luck_max: number;
   body: number;
   dexterity: number;
-  movement: number;
+  movement_current: number;
+  movement_max: number;
   humanity_current: number;
   humanity_max: number;
   hit_points_current: number;
   hit_points_max: number;
   seriously_wounded: boolean;
-  critical_injures_head: Injures_head;
-  critical_injures_body: Injures_body;
+  critical_injuries_head: CriticalInjuryHead[];
+  critical_injuries_body: CriticalInjuryBody[];
   addictions: string;
   death_save: number;
-
-
+  equipped_weapon: number;
+  equipped_head_armor: number;
+  equipped_body_armor: number;
+  equipped_shield: number;
   aliases: string;
   improvement_points_current: number;
   improvement_points_max: number;
   reputation: number;
   reputation_events: string;
+  lifepath: Lifepath;
 }
