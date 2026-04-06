@@ -66,3 +66,6 @@ export const SKILLS = [
 { value: 'sea_vehicle_tech', label: 'Обслуживание морских судов', stat: 'TECH', category: 'technique', category_label: 'Технические навыки', description: 'Навык ремонта и технического обслуживания морских транспортных средств.', harder: 'false'},
 { value: 'weaponstech', label: 'Оружейное дело', stat: 'TECH', category: 'technique', category_label: 'Технические навыки', description: 'Навык ремонта и обслуживания оружия всех типов.', harder: 'false'}
 ] as const;
+
+export type SkillName = typeof SKILLS[number]['value'];
+export type Skills = Record<SkillName, number>;
