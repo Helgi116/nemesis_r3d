@@ -1,6 +1,13 @@
-import { ROLES } from './constants/roles';
-import { SKILLS, Skills } from './constants/skills';
+import type { CriticalInjuryBody, CriticalInjuryHead } from './constants/injuries';
+import type {
+  AffectationYouAreNeverWithout,
+  ClothingStyle,
+  HairStyle,
+  Personality,
+} from './constants/lifepath';
 import { PERSONALITIES, CLOTHING_STYLES, HAIR_STYLES, AFFECTATIONS } from './constants/lifepath';
+import { ROLES, type Role } from './constants/roles';
+import { SKILLS, type Skills } from './constants/skills';
 
 export { ROLES, type Role } from './constants/roles';
 export { SKILLS, type SkillName, type Skills } from './constants/skills';
@@ -58,7 +65,8 @@ export interface Character {
   cash: number;
   housing: string;
   rent: number;
-  lifestile_cost: number;
+  lifestyle_cost: number;
+  skills: Skills;
 }
 
 export interface Lifepath {
@@ -152,6 +160,7 @@ export function createEmptyCharacter(): Character {
     cash: 0,
     housing: '',
     rent: 0,
-    lifestile_cost: 0
+    lifestyle_cost: 0,
+    skills: createEmptySkills(),
   };
 }
